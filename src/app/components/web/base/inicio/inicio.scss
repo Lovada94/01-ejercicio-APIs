@@ -1,0 +1,12 @@
+img {
+  border: #b587e0 solid 1px;
+  transition: .3s;
+  border-radius: 10%;
+}
+
+img:hover {
+  border: blueviolet solid 1px;
+  transition: .5s;
+  cursor: pointer;
+  transform: scale(105%);
+}

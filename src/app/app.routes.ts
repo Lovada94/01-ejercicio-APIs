@@ -4,6 +4,7 @@ import {FinalSpaceList} from './components/web/final-space/final-space-list/fina
 import {MonsterHunterList} from './components/web/monster-hunter/monster-hunter-list/monster-hunter-list';
 import {PokemonTcgList} from './components/web/pokemon-tcg/pokemon-tcg-list/pokemon-tcg-list';
 import {Inicio} from './components/web/base/inicio/inicio';
+import {ErrorComponent} from './components/structure/error/error-component';
 
 export const routes: Routes = [
   {
@@ -33,7 +34,7 @@ export const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: 'ErrorComponent',
+    component: ErrorComponent,
     pathMatch: 'full',
   },
 ];
