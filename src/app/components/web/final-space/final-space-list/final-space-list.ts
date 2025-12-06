@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import {Component, inject, signal} from '@angular/core';
+import {FinalSpaceService} from '../../../../services/final-space-service';
+import {CharacterFinalSpace} from '../../../../common/final-space-interface';
 
 @Component({
   selector: 'app-final-space-list',
@@ -8,4 +10,26 @@ import { Component } from '@angular/core';
 })
 export class FinalSpaceList {
 
+  private readonly finalSpaceService: FinalSpaceService = inject(FinalSpaceService);
+  charatcerList = signal<CharacterFinalSpace[]>([]);
+
+  constructor() {
+    this.loadCharatcers();
+  }
+
+  private loadCharatcers() {
+    this.finalSpaceService.getCharactersFinalSpace().subscribe(
+      {
+        next: value => {
+          this.charatcerList.set(value);
+        },
+        complete: () => {
+          console.log('Final Space List Loaded');
+        },
+        error: error => {
+          console.error(error);
+        }
+      }
+    )
+  }
 }

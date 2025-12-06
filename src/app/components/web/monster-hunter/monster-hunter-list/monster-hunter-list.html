@@ -1,1 +1,20 @@
-<p>monster-hunter-list works!</p>
+<div class="row">
+  @for (weapon of weaponsList(); track weapon.id) {
+    <div class="col-md-4 my-2">
+      <div class="card shadow-sm">
+        <div class="row">
+          <div class="col-4">
+            <img [src]="weapon.assets.image" [alt]="weapon.name" class="card-img">
+          </div>
+          <div class="col-8">
+            <div class="card-body">
+              <p><strong>Attack: </strong><span class="text-danger">{{weapon.attack}}</span></p>
+              <p><strong>Rarity: </strong><span class="text-primary">{{weapon.rarity}}</span></p>
+              <p class="badge bg-secondary">{{weapon.type}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  }
+</div>

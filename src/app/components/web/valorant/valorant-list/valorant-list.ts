@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import {Component, inject, signal} from '@angular/core';
+import {ValorantService} from '../../../../services/valorant-service';
+import {AgentValorant} from '../../../../common/valorant-interface';
 
 @Component({
   selector: 'app-valorant-list',
@@ -8,4 +10,26 @@ import { Component } from '@angular/core';
 })
 export class ValorantList {
 
+  private readonly valorantService: ValorantService = inject(ValorantService);
+  agentsList = signal<AgentValorant[]>([]);
+
+  constructor() {
+    this.loadAgents();
+  }
+
+  private loadAgents() {
+    this.valorantService.getAgentsValorant().subscribe(
+      {
+        next: value => {
+          this.agentsList.set(value.data);
+        },
+        complete: () => {
+          console.log("Agents loaded");
+        },
+        error: error => {
+          console.error(error);
+        }
+      }
+    )
+  }
 }

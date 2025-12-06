@@ -1,1 +1,21 @@
-<p>valorant-list works!</p>
+<div class="row">
+  @for (agent of agentsList(); track agent.uuid) {
+    <div class="col-md-6 my-3">
+      <div class="card text-bg-dark p-2">
+        <div class="row">
+          <div class="col-3 d-flex align-items-center">
+            <img [src]="agent.background" class="card-img" [alt]="agent.displayName">
+          </div>
+          <div class="col-3 d-flex align-items-center">
+            <img [src]="agent.displayIconSmall" class="card-img" [alt]="agent.displayName">
+          </div>
+          <div class="col-6">
+            <h5 class="card-title text-danger">{{ agent.displayName }}</h5>
+            <p class="card-text">{{ agent.description }}</p>
+            <p class="card-text badge bg-danger"><small>{{ agent.role.displayName }}</small></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  }
+</div>

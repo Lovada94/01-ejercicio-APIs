@@ -1,1 +1,18 @@
-<p>final-space-list works!</p>
+<div class="row">
+  @for (char of charatcerList(); track char.id) {
+    <div class="col-md-4 col-lg-3 my-3">
+      <div class="card shadow">
+        <div class="card-header bg-success-subtle">
+          <div class="card-title"><h4>{{char.name}}</h4></div>
+        </div>
+        <img [src]="char.img_url" [alt]="char.name" class="card-img-top">
+        <div class="card-body">
+          <p><strong>Gender: </strong><span class="text-success">{{char.gender}}</span></p>
+          @if (char.species) {
+            <p><strong>Species: </strong><span class="text-success">{{char.species}}</span></p>
+          }
+        </div>
+      </div>
+    </div>
+  }
+</div>

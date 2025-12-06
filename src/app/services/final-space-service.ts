@@ -10,7 +10,7 @@ export class FinalSpaceService {
   private readonly http: HttpClient = inject(HttpClient);
   private readonly urlBase = 'https://finalspaceapi.com/api/v0/character/';
 
-  getCharatcerFinalSpace(): Observable<CharacterFinalSpace[]> {
+  getCharactersFinalSpace(): Observable<CharacterFinalSpace[]> {
     return this.http.get<CharacterFinalSpace[]>(this.urlBase);
   }
 
