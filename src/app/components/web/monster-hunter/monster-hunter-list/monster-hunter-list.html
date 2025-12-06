@@ -1,7 +1,12 @@
 <div class="row">
   @for (weapon of weaponsList(); track weapon.id) {
-    <div class="col-md-4 my-2">
+    <div class="col-md-3 my-2">
       <div class="card shadow-sm">
+        <div class="card-header">
+          <div class="card-title">
+            <h4>{{weapon.name}}</h4>
+          </div>
+        </div>
         <div class="row">
           <div class="col-4">
             <img [src]="weapon.assets.image" [alt]="weapon.name" class="card-img">
