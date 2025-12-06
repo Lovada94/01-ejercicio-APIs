@@ -1,6 +1,10 @@
 {
   "name": "01-ejercicio-apis",
-  "version": "0.0.0",
+  "version": "0.1.0",
+  "author": {
+    "name": "Daniel López",
+    "email": "lovada94@outlook.com"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
