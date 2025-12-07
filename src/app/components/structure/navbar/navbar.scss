@@ -1,0 +1,79 @@
+/* 🔥 NAVBAR GLASSMORPHISM */
+.glass-nav {
+  background: rgba(15, 15, 30, 0.55);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* 🔥 LOGO NEON */
+.neon-text {
+  color: #00eaff;
+  text-shadow: 0 0 8px rgba(0, 234, 255, 0.6);
+  letter-spacing: 1px;
+}
+
+.text-accent {
+  color: #ff4655 !important;
+  text-shadow: 0 0 10px rgba(255, 70, 85, 0.5);
+}
+
+/* 🔥 LINKS DEL NAVBAR */
+.cool-link {
+  position: relative;
+  font-size: 1.1rem;
+  color: #e8e8e8 !important;
+  transition: 0.3s ease;
+}
+
+/* Subrayado animado */
+.cool-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background: #00eaff;
+  transition: 0.3s ease;
+}
+
+.cool-link:hover::after {
+  width: 100%;
+}
+
+/* Glow al hover */
+.cool-link:hover {
+  color: #00eaff !important;
+  text-shadow: 0 0 6px rgba(0, 234, 255, 0.7);
+}
+
+/* 🔥 BOTÓN ANIMADO */
+.btn-glow {
+  background: linear-gradient(45deg, #ff4655, #ff6e83);
+  border: none;
+  color: #fff;
+  border-radius: 50px;
+  transition: 0.3s ease;
+  box-shadow: 0 0 12px rgba(255, 70, 85, 0.6);
+}
+
+.btn-glow:hover {
+  box-shadow: 0 0 20px rgba(255, 70, 85, 1);
+  transform: translateY(-2px);
+}
+
+/* Pulso suave */
+.btn-glow {
+  animation: pulseGlow 2.5s infinite ease-in-out;
+}
+
+@keyframes pulseGlow {
+  0% { box-shadow: 0 0 10px rgba(255, 70, 85, 0.5); }
+  50% { box-shadow: 0 0 18px rgba(255, 70, 85, 1); }
+  100% { box-shadow: 0 0 10px rgba(255, 70, 85, 0.5); }
+}
+
+/* 🔥 MÓVIL */
+.navbar-toggler {
+  filter: brightness(1.6);
+}
