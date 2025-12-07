@@ -1,0 +1,28 @@
+<div class="row">
+  @for (card of cardList(); track card.id) {
+    <div class="col-md-4 my-2">
+      <div class="card shadow-sm">
+        <div class="row">
+          <div class="col-6">
+            @if (card.image_uris) {
+            <img [src]="card.image_uris.normal" [alt]="card.name" class="card-img">
+            } @else {
+              <img src="/images/sin_imagen.png" alt="'image not found'" class="card-img">
+            }
+          </div>
+          <div class="col-6">
+            <div class="card-header">
+              <div class="card-title">
+                <h5>{{card.name}}</h5>
+              </div>
+            </div>
+            <div class="card-body">
+              <p><strong><span>Type: </span></strong>{{card.type_line}}</p>
+              <p><strong><span>Rarity: </span></strong>{{card.rarity}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  }
+</div>
