@@ -14,4 +14,5 @@ export class MagicFinalFantasyService {
     return this.http.get<ApiResponseMagicFF>(this.urlBase);
   }
 
+  
 }

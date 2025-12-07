@@ -1,21 +1,35 @@
 <div class="row">
+  <div class="col-12 d-flex justify-content-center">
+    <ngb-pagination [collectionSize]="totalWeapons"
+                    [pageSize]="pageSize"
+                    [(page)]="currentPage"
+                    (pageChange)="loadWeapons($event)"
+                    [boundaryLinks]="true"
+                    [rotate]="true"
+                    [maxSize]="5">
+    </ngb-pagination>
+  </div>
   @for (weapon of weaponsList(); track weapon.id) {
     <div class="col-md-3 my-2">
       <div class="card shadow-sm">
         <div class="card-header">
           <div class="card-title">
-            <h4>{{weapon.name}}</h4>
+            <h4>{{ weapon.name }}</h4>
           </div>
         </div>
         <div class="row">
           <div class="col-4">
-            <img [src]="weapon.assets.image" [alt]="weapon.name" class="card-img">
+            @if (weapon.assets) {
+              <img [src]="weapon.assets.image" [alt]="weapon.name" class="card-img">
+            } @else {
+              <img src="/images/sin_imagen.png" [alt]="weapon.name" class="card-img">
+            }
           </div>
           <div class="col-8">
             <div class="card-body">
-              <p><strong>Attack: </strong><span class="text-danger">{{weapon.attack}}</span></p>
-              <p><strong>Rarity: </strong><span class="text-primary">{{weapon.rarity}}</span></p>
-              <p class="badge bg-secondary">{{weapon.type}}</p>
+              <p><strong>Attack: </strong><span class="text-danger">{{ weapon.attack }}</span></p>
+              <p><strong>Rarity: </strong><span class="text-primary">{{ weapon.rarity }}</span></p>
+              <p class="badge bg-secondary">{{ weapon.type }}</p>
             </div>
           </div>
         </div>

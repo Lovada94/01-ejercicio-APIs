@@ -8,9 +8,16 @@ import {WeaponMonsterHunter} from '../common/monster-hunter';
 })
 export class MonsterHunterService {
   private readonly http: HttpClient = inject(HttpClient);
-  private readonly urlBase = 'https://mhw-db.com/weapons?q={"id":{"$gte":1,"$lte":20}}';
+  private readonly urlBase = 'https://mhw-db.com/weapons';
 
-  getWeaponsMonsterHunter(): Observable<WeaponMonsterHunter[]>{
+  getWeaponsMonsterHunter(page: number, pageSize: number): Observable<WeaponMonsterHunter[]>{
+    const max = page * pageSize;
+    const min = max - pageSize + 1;
+
+    return this.http.get<WeaponMonsterHunter[]>(this.urlBase+'?q={"id":{"$gte":'+min+',"$lte":'+max+'}}');
+  }
+
+  getWeaponsNumber(): Observable<WeaponMonsterHunter[]>{
     return this.http.get<WeaponMonsterHunter[]>(this.urlBase);
   }
 
