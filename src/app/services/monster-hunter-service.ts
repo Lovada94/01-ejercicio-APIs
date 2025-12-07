@@ -21,4 +21,8 @@ export class MonsterHunterService {
     return this.http.get<WeaponMonsterHunter[]>(this.urlBase);
   }
 
+  getWeapon(id: number): Observable<WeaponMonsterHunter>{
+    return this.http.get<WeaponMonsterHunter>(this.urlBase+'/'+id);
+  }
+
 }

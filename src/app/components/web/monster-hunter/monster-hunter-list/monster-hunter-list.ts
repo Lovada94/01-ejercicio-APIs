@@ -2,11 +2,13 @@ import {Component, inject, signal} from '@angular/core';
 import {MonsterHunterService} from '../../../../services/monster-hunter-service';
 import {WeaponMonsterHunter} from '../../../../common/monster-hunter';
 import {NgbPagination} from '@ng-bootstrap/ng-bootstrap';
+import {RouterLink} from '@angular/router';
 
 @Component({
   selector: 'app-monster-hunter-list',
   imports: [
-    NgbPagination
+    NgbPagination,
+    RouterLink
   ],
   templateUrl: './monster-hunter-list.html',
   styleUrl: './monster-hunter-list.scss',

@@ -1,0 +1,175 @@
+@if (weaponMonsterHunter) {
+  <div class="container my-4">
+    <div class="card shadow weapon-card">
+      <!-- CABECERA -->
+      <div class="card-header bg-primary-subtle text-center">
+        <h2 class="text-primary mb-1">
+          {{ weaponMonsterHunter.name }}
+        </h2>
+        <p class="mb-0 small">
+          {{ weaponMonsterHunter.type | titlecase }} ·
+          Rarity {{ weaponMonsterHunter.rarity }} ·
+          {{ weaponMonsterHunter.damageType | titlecase }}
+        </p>
+        @if (weaponMonsterHunter.elderseal) {
+          <p class="mb-0 small">
+            Elderseal: {{ weaponMonsterHunter.elderseal }}
+          </p>
+        }
+      </div>
+
+      <!-- CUERPO -->
+      <div class="card-body">
+        <div class="row">
+          <!-- Imagen -->
+          <div class="col-md-4 text-center mb-3 mb-md-0">
+            @if (weaponMonsterHunter.assets?.image) {
+              <img
+                [src]="weaponMonsterHunter.assets.image"
+                [alt]="weaponMonsterHunter.name"
+                class="img-fluid weapon-image rounded"
+              >
+            } @else if (weaponMonsterHunter.assets?.icon) {
+              <img
+                [src]="weaponMonsterHunter.assets.icon"
+                [alt]="weaponMonsterHunter.name"
+                class="img-fluid weapon-image rounded"
+              >
+            } @else {
+              <div class="placeholder-image d-flex align-items-center justify-content-center">
+                <span>No image</span>
+              </div>
+            }
+          </div>
+
+          <!-- STATS / INFO -->
+          <div class="col-md-8">
+            <!-- Stats básicos -->
+            <h5 class="mb-2">Stats</h5>
+            <ul class="list-unstyled mb-3">
+              <li>
+                <strong>Attack (display):</strong>
+                {{ weaponMonsterHunter.attack.display }}
+              </li>
+              <li>
+                <strong>Attack (raw):</strong>
+                {{ weaponMonsterHunter.attack.raw }}
+              </li>
+              <li>
+                <strong>Damage type:</strong>
+                {{ weaponMonsterHunter.damageType }}
+              </li>
+            </ul>
+
+            <!-- Slots -->
+            @if (weaponMonsterHunter.slots?.length) {
+              <h5 class="mb-2">Slots</h5>
+              <p class="mb-3">
+                @for (slot of weaponMonsterHunter.slots; track $index) {
+                  <span class="badge text-bg-secondary me-1">
+                    Rank {{ slot.rank }}
+                  </span>
+                }
+              </p>
+            }
+
+            <!-- Elementos -->
+            @if (weaponMonsterHunter.elements?.length) {
+              <h5 class="mb-2">Elements</h5>
+              <ul class="list-unstyled mb-3">
+                @for (el of weaponMonsterHunter.elements; track $index) {
+                  <li>
+                    <strong>{{ el.type | titlecase }}:</strong>
+                    {{ el.damage }}
+                    @if (el.hidden) { <span class="badge text-bg-warning ms-1">Hidden</span> }
+                  </li>
+                }
+              </ul>
+            }
+
+            <!-- Durabilidad -->
+            @if (weaponMonsterHunter.durability?.length) {
+              <h5 class="mb-2">Durability / Sharpness</h5>
+              <div class="durability-list mb-3">
+                @for (d of weaponMonsterHunter.durability; track $index) {
+                  <div class="durability-row mb-1">
+                    <div class="durability-bar">
+                      <span class="dur red"    [style.width.%]="d.red"></span>
+                      <span class="dur orange" [style.width.%]="d.orange"></span>
+                      <span class="dur yellow" [style.width.%]="d.yellow"></span>
+                      <span class="dur green"  [style.width.%]="d.green"></span>
+                      <span class="dur blue"   [style.width.%]="d.blue"></span>
+                      <span class="dur white"  [style.width.%]="d.white"></span>
+                      <span class="dur purple" [style.width.%]="d.purple"></span>
+                    </div>
+                  </div>
+                }
+              </div>
+            }
+
+            <!-- Crafting -->
+            @if (weaponMonsterHunter.crafting) {
+              <h5 class="mb-2">Crafting</h5>
+              <p class="mb-1">
+                <strong>Craftable:</strong>
+                {{ weaponMonsterHunter.crafting.craftable ? 'Yes' : 'No' }}
+              </p>
+              @if (weaponMonsterHunter.crafting.previous) {
+                <p class="mb-1">
+                  <strong>Previous weapon ID:</strong>
+                  {{ weaponMonsterHunter.crafting.previous }}
+                </p>
+              }
+              @if (weaponMonsterHunter.crafting.branches?.length) {
+                <p class="mb-2">
+                  <strong>Branches:</strong>
+                  @for (b of weaponMonsterHunter.crafting.branches; track $index) {
+                    <span class="badge text-bg-info me-1">{{ b }}</span>
+                  }
+                </p>
+              }
+
+              <!-- Crafting materials -->
+              @if (weaponMonsterHunter.crafting.craftingMaterials?.length) {
+                <h6>Crafting materials</h6>
+                <ul class="list-unstyled mb-2">
+                  @for (mat of weaponMonsterHunter.crafting.craftingMaterials; track $index) {
+                    <li>
+                      <strong>{{ mat.quantity }}×</strong>
+                      {{ mat.item.name }}
+                      <span class="text-muted">
+                        (R{{ mat.item.rarity }} · {{ mat.item.value }}z)
+                      </span>
+                    </li>
+                  }
+                </ul>
+              }
+
+              <!-- Upgrade materials -->
+              @if (weaponMonsterHunter.crafting.upgradeMaterials?.length) {
+                <h6>Upgrade materials</h6>
+                <ul class="list-unstyled mb-0">
+                  @for (mat of weaponMonsterHunter.crafting.upgradeMaterials; track $index) {
+                    <li>
+                      <strong>{{ mat.quantity }}×</strong>
+                      {{ mat.item.name }}
+                      <span class="text-muted">
+                        (R{{ mat.item.rarity }} · {{ mat.item.value }}z)
+                      </span>
+                    </li>
+                  }
+                </ul>
+              }
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+} @else {
+  <div class="d-flex justify-content-center align-items-center my-5">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+}

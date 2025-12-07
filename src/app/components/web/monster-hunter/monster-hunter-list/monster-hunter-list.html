@@ -11,7 +11,7 @@
   </div>
   @for (weapon of weaponsList(); track weapon.id) {
     <div class="col-md-3 my-2">
-      <div class="card shadow-sm">
+      <div class="card shadow-sm" routerLink="{{weapon.id}}">
         <div class="card-header">
           <div class="card-title">
             <h4>{{ weapon.name }}</h4>
@@ -36,4 +36,14 @@
       </div>
     </div>
   }
+  <div class="col-12 d-flex justify-content-center">
+    <ngb-pagination [collectionSize]="totalWeapons"
+                    [pageSize]="pageSize"
+                    [(page)]="currentPage"
+                    (pageChange)="loadWeapons($event)"
+                    [boundaryLinks]="true"
+                    [rotate]="true"
+                    [maxSize]="5">
+    </ngb-pagination>
+  </div>
 </div>

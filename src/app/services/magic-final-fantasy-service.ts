@@ -14,5 +14,7 @@ export class MagicFinalFantasyService {
     return this.http.get<ApiResponseMagicFF>(this.urlBase);
   }
 
-  
+  getCardsByPage(page: number): Observable<ApiResponseMagicFF> {
+    return this.http.get<ApiResponseMagicFF>(this.urlBase+'&page='+page);
+  }
 }

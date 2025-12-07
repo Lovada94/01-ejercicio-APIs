@@ -7,6 +7,7 @@ import {ErrorComponent} from './components/structure/error/error-component';
 import {
   MagicFinalFantasyList
 } from './components/web/magic-final-fantasy/magic-final-fantasy-list/magic-final-fantasy-list';
+import {MonsterHunterDetail} from './components/web/monster-hunter/monster-hunter-detail/monster-hunter-detail';
 
 export const routes: Routes = [
   {
@@ -29,6 +30,10 @@ export const routes: Routes = [
   {
     path: 'monster-hunter/list',
     component: MonsterHunterList,
+  },
+  {
+    path: 'monster-hunter/list/:id',
+    component: MonsterHunterDetail,
   },
   {
     path: 'magic-final-fantasy/list',
