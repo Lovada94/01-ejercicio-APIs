@@ -1,0 +1,39 @@
+.final-space-detail-container {
+  background: radial-gradient(circle at center, #1a1a2e, #0f0f1a);
+  padding-bottom: 40px;
+  color: #f1f1f1;
+}
+
+.character-img {
+  max-height: 360px;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 200, 255, 0.4);
+}
+
+.character-title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #00eaff;
+  text-shadow: 0 0 15px rgba(0, 234, 255, 0.6);
+  margin-bottom: 10px;
+}
+
+.separator {
+  border-color: rgba(255, 255, 255, 0.2);
+  margin: 30px 0;
+}
+
+.ability-item {
+  background: rgba(0, 0, 0, 0.4);
+  color: #d0faff;
+  border: none;
+  margin-bottom: 4px;
+  padding: 12px;
+  border-left: 4px solid #00eaff;
+  backdrop-filter: blur(3px);
+}
+
+.loading {
+  height: 300px;
+}

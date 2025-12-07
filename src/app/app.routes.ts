@@ -9,6 +9,7 @@ import {
 } from './components/web/magic-final-fantasy/magic-final-fantasy-list/magic-final-fantasy-list';
 import {MonsterHunterDetail} from './components/web/monster-hunter/monster-hunter-detail/monster-hunter-detail';
 import {ValorantDetail} from './components/web/valorant/valorant-detail/valorant-detail';
+import {FinalSpaceDetail} from './components/web/final-space/final-space-detail/final-space-detail';
 
 export const routes: Routes = [
   {
@@ -31,6 +32,10 @@ export const routes: Routes = [
   {
     path: 'final-space/list',
     component: FinalSpaceList,
+  },
+  {
+    path: 'final-space/list/:id',
+    component: FinalSpaceDetail,
   },
   {
     path: 'monster-hunter/list',

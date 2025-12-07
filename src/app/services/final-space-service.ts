@@ -14,4 +14,8 @@ export class FinalSpaceService {
     return this.http.get<CharacterFinalSpace[]>(this.urlBase);
   }
 
+  getCharacter(id: number): Observable<CharacterFinalSpace> {
+    return this.http.get<CharacterFinalSpace>(this.urlBase+id);
+  }
+
 }

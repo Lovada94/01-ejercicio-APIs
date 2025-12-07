@@ -32,9 +32,10 @@
           <!-- Tags -->
           @if (agent.characterTags?.length) {
             <div class="mt-3">
-              <span class="badge bg-secondary me-1"
-                    *ngFor="let tag of agent.characterTags">
-                {{ tag }}
+              <span class="badge bg-secondary me-1">
+                    @for (tag of agent.characterTags; track agent.uuid) {
+                    {{ tag }}
+              }
               </span>
             </div>
           }
