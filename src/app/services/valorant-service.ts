@@ -1,7 +1,7 @@
 import {inject, Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {ApiResponseValorant} from '../common/valorant-interface';
+import {AgentValorant, ApiResponseValorant, ApiResponseValorantAgent} from '../common/valorant-interface';
 
 @Injectable({
   providedIn: 'root',
@@ -14,4 +14,7 @@ export class ValorantService {
     return this.http.get<ApiResponseValorant>(this.urlBase);
   }
 
+  getAgent(uuid: string): Observable<ApiResponseValorantAgent>{
+    return this.http.get<ApiResponseValorantAgent>(this.urlBase +'/'+ uuid);
+  }
 }

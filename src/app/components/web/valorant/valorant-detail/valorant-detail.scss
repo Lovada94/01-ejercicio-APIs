@@ -1,0 +1,64 @@
+.valorant-detail-container {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  padding-bottom: 50px;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 15, 15, 0.6);
+  backdrop-filter: blur(3px);
+}
+
+.agent-title {
+  font-size: 3rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.agent-portrait {
+  max-height: 500px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.25));
+}
+
+.role-icon {
+  width: 50px;
+  height: 50px;
+}
+
+.ability-card {
+  background: rgba(0, 0, 0, 0.4);
+  border-left: 4px solid #ff4655;
+  color: #fff;
+}
+
+.ability-icon {
+  width: 48px;
+  height: 48px;
+}
+
+.ability-placeholder {
+  width: 48px;
+  height: 48px;
+  background: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  border-radius: 6px;
+  color: #ff4655;
+  font-size: 1.2rem;
+}
+
+hr {
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.loading {
+  height: 300px;
+}

@@ -1,0 +1,87 @@
+@if (agent) {
+  <div class="valorant-detail-container" [style.background-image]="'url(' + agent.background + ')'">
+    <div class="overlay"></div>
+
+    <div class="container py-5 position-relative">
+
+      <!-- NOMBRE / PORTRAIT -->
+      <div class="row align-items-center">
+        <div class="col-md-5 text-center mb-4 mb-md-0">
+          @if (agent.fullPortrait) {
+            <img [src]="agent.fullPortrait" [alt]="agent.displayName" class="agent-portrait img-fluid">
+          } @else {
+            <img [src]="agent.displayIcon" [alt]="agent.displayName" class="agent-portrait img-fluid">
+          }
+        </div>
+
+        <div class="col-md-7 text-light">
+          <h1 class="agent-title">{{ agent.displayName }}</h1>
+          <p class="lead">{{ agent.description }}</p>
+
+          <!-- Rol -->
+          <div class="agent-role d-flex align-items-center mt-3">
+            <img [src]="agent.role.displayIcon"
+                 [alt]="agent.role.displayName"
+                 class="role-icon me-2">
+            <div>
+              <h5 class="mb-0">{{ agent.role.displayName }}</h5>
+              <small>{{ agent.role.description }}</small>
+            </div>
+          </div>
+
+          <!-- Tags -->
+          @if (agent.characterTags?.length) {
+            <div class="mt-3">
+              <span class="badge bg-secondary me-1"
+                    *ngFor="let tag of agent.characterTags">
+                {{ tag }}
+              </span>
+            </div>
+          }
+        </div>
+      </div>
+
+      <hr class="my-4 opacity-50">
+
+      <!-- HABILIDADES -->
+      <div class="abilities-section text-light">
+        <h3 class="mb-3">Abilities</h3>
+
+        <div class="row">
+          @for (ab of agent.abilities; track $index) {
+            <div class="col-md-6 mb-3">
+              <div class="ability-card p-3 rounded">
+                <div class="d-flex align-items-center">
+                  @if (ab.displayIcon) {
+                    <img [src]="ab.displayIcon"
+                         [alt]="ab.displayName"
+                         class="ability-icon me-3">
+                  } @else {
+                    <div class="ability-placeholder me-3">
+                      ?
+                    </div>
+                  }
+
+                  <div>
+                    <h5 class="mb-1">{{ ab.displayName }}</h5>
+                    <small class="text-uppercase text-muted">{{ ab.slot }}</small>
+                  </div>
+                </div>
+
+                <p class="mt-2 mb-0">
+                  {{ ab.description }}
+                </p>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+
+    </div>
+  </div>
+} @else {
+  <div class="loading d-flex justify-content-center align-items-center my-5">
+    <div class="spinner-border text-primary"></div>
+  </div>
+}
+

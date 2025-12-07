@@ -8,6 +8,7 @@ import {
   MagicFinalFantasyList
 } from './components/web/magic-final-fantasy/magic-final-fantasy-list/magic-final-fantasy-list';
 import {MonsterHunterDetail} from './components/web/monster-hunter/monster-hunter-detail/monster-hunter-detail';
+import {ValorantDetail} from './components/web/valorant/valorant-detail/valorant-detail';
 
 export const routes: Routes = [
   {
@@ -22,6 +23,10 @@ export const routes: Routes = [
   {
     path: 'valorant/list',
     component: ValorantList,
+  },
+  {
+    path: 'valorant/detail/:uuid',
+    component: ValorantDetail,
   },
   {
     path: 'final-space/list',

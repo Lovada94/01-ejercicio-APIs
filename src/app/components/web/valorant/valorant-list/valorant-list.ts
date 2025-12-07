@@ -1,10 +1,13 @@
 import {Component, inject, signal} from '@angular/core';
 import {ValorantService} from '../../../../services/valorant-service';
 import {AgentValorant} from '../../../../common/valorant-interface';
+import {RouterLink} from '@angular/router';
 
 @Component({
   selector: 'app-valorant-list',
-  imports: [],
+  imports: [
+    RouterLink
+  ],
   templateUrl: './valorant-list.html',
   styleUrl: './valorant-list.scss',
 })

@@ -3,6 +3,11 @@ export interface ApiResponseValorant {
   data: AgentValorant[]
 }
 
+export interface ApiResponseValorantAgent {
+  status: number
+  data: AgentValorant
+}
+
 export interface AgentValorant {
   uuid: string
   displayName: string
